@@ -9,9 +9,9 @@ public class BaseTest {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+            // For Java 14, use appropriate WebDriver version
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/webdriver/chromedriver");
             driver = new ChromeDriver();
-            driver.manage().window().maximize();
         }
         return driver;
     }
