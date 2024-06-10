@@ -1,27 +1,23 @@
 package demo;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CartPage {
-
+public class FinishPage {
     private WebDriver driver;
 
-    @FindBy(id = "checkout")
-    private WebElement checkoutButton;
+    @FindBy(className = "pony_express")
+    private WebElement ponyExpressMessage;
 
-    public CartPage(WebDriver driver) {
+    public FinishPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void clickCheckout() {
-        checkoutButton.click();
+    public boolean isPonyExpressMessageVisible()
+    {
+        return ponyExpressMessage.isDisplayed();
     }
-
-
 }

@@ -9,7 +9,7 @@ public class BaseTest {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            // For Java 14, use appropriate WebDriver version
+            // Once has to use appropriate webdriver as per java version and operating system
             System.setProperty("webdriver.chrome.driver", "src/main/resources/webdriver/chromedriver");
             driver = new ChromeDriver();
         }

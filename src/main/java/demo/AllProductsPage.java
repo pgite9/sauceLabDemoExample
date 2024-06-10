@@ -19,11 +19,21 @@ public class AllProductsPage {
     @FindBy(className = "shopping_cart_link")
     private WebElement cartIcon;
 
+    @FindBy(id = "inventory_container")
+    private WebElement allProductsList;
+
+    @FindBy(css = ".cart_item")
+    private WebElement cartItem;
+
     public void addFirstProductToCart() {
         firstProductAddToCartButton.click();
     }
 
     public void goToCart() {
         cartIcon.click();
+    }
+
+    public boolean isProductInCart() {
+        return cartItem.isDisplayed();
     }
 }

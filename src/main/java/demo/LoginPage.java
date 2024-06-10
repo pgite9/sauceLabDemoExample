@@ -5,11 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 public class LoginPage {
     private WebDriver driver;
+    // private String Base_URL;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver, String Base_URL) {
         this.driver = driver;
+        //driver.get("https://www.saucedemo.com/");
+        driver.get(Base_URL);
         PageFactory.initElements(driver, this);
     }
 
@@ -22,6 +26,9 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
+    @FindBy(css = ".inventory_list")
+    private WebElement inventoryList;
+
     public void enterUsername(String username) {
         usernameField.sendKeys(username);
     }
@@ -32,5 +39,9 @@ public class LoginPage {
 
     public void clickLogin() {
         loginButton.click();
+    }
+
+    public boolean isLoginSuccessful() {
+        return inventoryList.isDisplayed();
     }
 }
